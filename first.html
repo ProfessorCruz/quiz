@@ -1,0 +1,20 @@
+<!-- Este é um template HTML que usa Jinja2 para exibir uma lista de quizzes dinamicamente. -->
+<!DOCTYPE html>  <!-- Define o documento como HTML5. -->
+<html>  <!-- Inicia a estrutura HTML. -->
+<head>  <!-- Seção de cabeçalho do documento. -->
+    <meta charset="UTF-8">  <!-- Define a codificação de caracteres como UTF-8. -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">  <!-- Vincula o arquivo CSS usando uma função Jinja2. -->
+    <title>Quiz</title>  <!-- Define o título da página. -->
+</head>  <!-- Fecha a seção de cabeçalho. -->
+<body>  <!-- Inicia o corpo da página. -->
+<h2>Escolha o quiz:</h2>  <!-- Título da seção. -->
+    <form method="post" action="/">  <!-- Formulário que envia dados por POST para a raiz. -->
+        <select name="quiz">  <!-- Lista suspensa para selecionar o quiz. -->
+            {% for id, name in q_list %}  <!-- Loop Jinja2 para iterar sobre a lista de quizzes. -->
+                <option value="{{id}}">{{name}}</option>  <!-- Cria uma opção com id e nome. -->
+            {% endfor %}  <!-- Fecha o loop Jinja2. -->
+        </select>  <!-- Fecha a lista suspensa. -->
+        <p><input type="submit" value="Escolher"></p>  <!-- Botão de envio do formulário. -->
+    </form>  <!-- Fecha o formulário. -->
+</body>  <!-- Fecha o corpo da página. -->
+</html>  <!-- Fecha a estrutura HTML. -->
